@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wheather App</title>
+    <link rel="stylesheet" href="weather.css" />
+    <link rel="shortcut icon" href="img/clear.png" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+      body {
+    font-family: poppins;
+    font-size: 17px;
+    background: #1a1a1a;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+#img {
+    margin-right: 900px;
+}
+    </style>
+  </head>
+  <body>
+    <!--Navbar-->
+
+    <nav class="navbar navbar-expand-lg bg-light text-light">
+      <div class="container-fluid">
+      <a class="navbar-brand text-light" href="#">AppsCompanion</a><img id="img" src="https://docs.ton.org/img/docs/telegram-apps/tapps.png" alt="" width="50">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+          <a class="nav-link active text-light bg-primary rounded m-2" aria-current="page" href="index.html">Home</a>
+          <a class="nav-link active text-light bg-primary rounded m-2" aria-current="page" href="todo.html">Todo App</a>
+          <a class="nav-link text-light bg-primary rounded m-2" href="agecalc.html">Age Calculator</a>
+          <a class="nav-link text-light bg-primary rounded m-2" href="weather.html">Weather App</a>
+          <a class="nav-link text-light bg-primary rounded m-2" href="calculator.html">Calculator</a>
+          <a class="nav-link text-light bg-primary rounded m-2" href="clock.html">Clock</a>
+          </div>
+      </div>
+      </div>
+  </nav>
+    <div class="card rounded shadow-lg">
+      <div class="search">
+        <input type="text" placeholder="Enter city name" spellcheck="false" />
+        <button><img src="img/search.png" alt="" /></button>
+      </div>
+      <div class="error">
+        <p>Invalid city name.</p>
+      </div>
+      <div class="weather">
+        <img src="img/rain.png" class="weather-icon" alt="" />
+        <h1 class="temp">22*C</h1>
+        <h2 class="city">New York</h2>
+        <div class="details">
+          <div class="col">
+            <img src="img/humidity.png" alt="" />
+            <div>
+              <p class="humidity">50%</p>
+              <p>humidity</p>
+            </div>
+          </div>
+          <br><br><br>
+          <div class="col">
+            <img src="img/wind.png" alt="" />
+            <div>
+              <p class="wind">15 km/h</p>
+              <p>Wind speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="weather.js"></script>
+  </body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+    <title>Todo-App</title>
+    <style>
+        :root {
+  --gradient: linear-gradient(
+    180deg,
+    rgba(45, 112, 1253, 0.73) 0%,
+    #163e92 100%
+  );
+  --dark: #001747;
+  --grey: #b1bacb;
+  --grey-border: rgba(210, 210, 210, 0.75);
+  --grey-light: #eeeeee;
+  --grey-dark: $405175;
+  --blue: #2d70fd;
+  --green: #00d8a7;
+  --white: #ffffff;
+}
+
+body {
+  background: var(--gradient);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center; 
+  font-family: poppins;
+  font-size: 17px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+#img {
+    margin-right: 950px;
+}
+
+.btn {
+  color: var(--white);
+  font-size: 1.1rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.3rem;
+  background-color: var(--blue);
+  border: none;
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+/* Todo Container */
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 2rem;
+  background: var(--white);
+  padding: 3rem;
+  height: 50%;
+  width: 60%;
+  box-shadow: 0 1rem 3rem 1rem rgba(0, 23, 71, 0.15);
+  max-width: 30rem;
+}
+
+h2 {
+  text-transform: uppercase;
+  height: 3rem;
+  color: var(--dark);
+  text-align: center;
+}
+
+.input {
+  position: relative;
+  display: flex;
+}
+
+.input-field {
+  width: 100%;
+  border: 0.06rem solid #d2d2d2bf;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  font-size: 1rem;
+}
+
+input[type="text"]::placeholder {
+  color: var(--grey);
+}
+
+.todo-container {
+  display: flex;
+  gap: 1rem;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.3rem;
+}
+
+#todoList p {
+  display: flex;
+  gap: 1rem;
+  color: var(--dark);
+  align-items: center;
+}
+
+#todoList .disabled {
+  color: #8f98a8;
+}
+
+.disabled {
+  display: flex;
+  text-decoration: line-through;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+  content: "\2713";
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.7rem;
+  text-align: center;
+  border: 0.06rem solid var(--grey-border);
+  border-radius: 50%;
+  color: transparent;
+}
+
+input[type="checkbox"]:checked::before {
+  color: var(--white);
+  background-color: var(--green);
+  border: 0.06rem solid var(--green);
+  border-radius: 50%;
+}
+
+.counter {
+  border: 0.06rem solid var(--grey-light);
+}
+
+.counter-container {
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  color: var(--grey);
+}
+
+.counter-container p {
+  align-self: center;
+}
+
+.counter-container button {
+  border: none;
+  background-color: transparent;
+  color: var(--grey);
+  font-size: 1rem;
+}
+
+.footer {
+  display: flex;
+  gap: 1.8rem;
+  background-color: var(--white);
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+}
+
+.made-by,
+.author {
+  font-size: 0.9rem;
+}
+
+.made-by {
+  color: var(--grey-dark);
+}
+
+.author {
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.scroll {
+  height: 15rem;
+  scrollbar-width: thin;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  border-radius: 0.5rem;
+}
+
+.scroll::-webkit-scrollbar-track {
+  display: none;
+}
+    </style>
+  </head>
+  <body>
+
+
+
+<nav class="navbar navbar-expand-lg bg-light text-light shadow-lg">
+        <div class="container-fluid">
+        <a class="navbar-brand text-dark" href="#">AppsCompanion</a><img id="img" src="https://docs.ton.org/img/docs/telegram-apps/tapps.png" alt="" width="50">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-link active text-light bg-primary rounded m-2" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link active text-light bg-primary rounded m-2" aria-current="page" href="todo.html">Todo App</a>
+            <a class="nav-link text-light bg-primary rounded m-2" href="agecalc.html">Age Calculator</a>
+            <a class="nav-link text-light bg-primary rounded m-2" href="weather.html">Weather App</a>
+            <a class="nav-link text-light bg-primary rounded m-2" href="calculator.html">Calculator</a>
+            <a class="nav-link text-light bg-primary rounded m-2" href="clock.html">Clock</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+
+    <section class="todo">
+      <h2 class="heading-1 text-weight-bold">To-do list</h2>
+      <br>
+      <br>
+      <div class="input">
+        <input
+          type="text"
+          class="input-field"
+          id="todoInput"
+          placeholder="Add a new todo"
+        />
+        <button class="btn btn-primary text-dark">Add</button>
+      </div>
+      <ul class="scroll">
+        <li id="todoList"></li>
+      </ul>
+      <div>
+        <hr class="counter" />
+        <div class="counter-container">
+          <p class="text-dark"><span id="todoCount" class="text-dark">0</span> items total</p>
+          <button id="deleteButton" class="text-dark">Delete All</button>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer">
+        <p class="made-by">Made By</p>
+        <p class="author">Nawaf Rayhan🔴</p>
+      </div>
+    </footer>
+  </body>
+  <script>
+    // Retrieve todo from local storage or initialize an empty array
+let todo = JSON.parse(localStorage.getItem("todo")) || [];
+const todoInput = document.getElementById("todoInput");
+const todoList = document.getElementById("todoList");
+const todoCount = document.getElementById("todoCount");
+const addButton = document.querySelector(".btn");
+const deleteButton = document.getElementById("deleteButton");
+
+// Initialize
+document.addEventListener("DOMContentLoaded", function () {
+  addButton.addEventListener("click", addTask);
+  todoInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevents default Enter key behavior
+      addTask();
+    }
+  });
+  deleteButton.addEventListener("click", deleteAllTasks);
+  displayTasks();
+});
+
+function addTask() {
+  const newTask = todoInput.value.trim();
+  if (newTask !== "") {
+    todo.push({ text: newTask, disabled: false });
+    saveToLocalStorage();
+    todoInput.value = "";
+    displayTasks();
+  }
+}
+
+function displayTasks() {
+  todoList.innerHTML = "";
+  todo.forEach((item, index) => {
+    const p = document.createElement("p");
+    p.innerHTML = `
+      <div class="todo-container">
+        <input type="checkbox" class="todo-checkbox" id="input-${index}" ${
+      item.disabled ? "checked" : ""
+    }>
+        <p id="todo-${index}" class="${
+      item.disabled ? "disabled" : ""
+    }" onclick="editTask(${index})">${item.text}</p>
+      </div>
+    `;
+    p.querySelector(".todo-checkbox").addEventListener("change", () =>
+      toggleTask(index)
+    );
+    todoList.appendChild(p);
+  });
+  todoCount.textContent = todo.length;
+}
+
+function editTask(index) {
+  const todoItem = document.getElementById(`todo-${index}`);
+  const existingText = todo[index].text;
+  const inputElement = document.createElement("input");
+
+  inputElement.value = existingText;
+  todoItem.replaceWith(inputElement);
+  inputElement.focus();
+
+  inputElement.addEventListener("blur", function () {
+    const updatedText = inputElement.value.trim();
+    if (updatedText) {
+      todo[index].text = updatedText;
+      saveToLocalStorage();
+    }
+    displayTasks();
+  });
+}
+
+function toggleTask(index) {
+  todo[index].disabled = !todo[index].disabled;
+  saveToLocalStorage();
+  displayTasks();
+}
+
+function deleteAllTasks() {
+  todo = [];
+  saveToLocalStorage();
+  displayTasks();
+}
+
+function saveToLocalStorage() {
+  localStorage.setItem("todo", JSON.stringify(todo));
+}
+  </script>
+</html>
