@@ -1,0 +1,458 @@
+//game
+
+  <article>
+
+    <div class="article-wrapper">
+      <figure>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiXe50V9YXsQYtITSNjY0lKZi8NtBi59H9_A&s" width="500" alt="" />
+      </figure>
+      <div class="article-body">
+        <h2>TicTacToe Game</h2>
+        <p>
+          Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+        </p>
+        <a href="https://codearry.github.io/tictactoe/" class="read-more">
+          Go To Game<span class="sr-only">about this is some title</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <article>
+
+
+
+
+
+//TRANSLATOR(INDEX.HTML)
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Language Translator</title>
+  <style>
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins",sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  min-height: 100vh;
+  background: #313457;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  padding: 30px;
+  background: #f5f5f5;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 36px -5px #ffffff;
+}
+
+.wrapper {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.wrapper .text-input {
+  display: block;
+}
+
+.text-input .to-text {
+  border-radius: 0px;
+  border-top: 1px solid #ccc;
+}
+
+.text-input textarea {
+  height: 250px;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  background: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 0.3rem;
+}
+
+.text-input textarea::placeholder {
+  color: #b7b6b6;
+}
+
+.controls,
+li,
+.icons,
+.icons ion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controls {
+  list-style: none;
+  padding: 12px 15px;
+  border-top: 1px solid #ccc;
+}
+
+.controls .row .icons {
+  width: 38%;
+}
+
+.controls .row .icons ion-icon {
+  width: 50px;
+  color: #adadad;
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  justify-content: center;
+}
+.controls .row.from .icons {
+  padding-right: 15px;
+  border-right: 1px solid #ccc;
+}
+.controls .row.to .icons {
+  padding-left: 15px;
+  border-left: 1px solid #ccc;
+}
+.controls .row select {
+  color: #333;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  background: none;
+  padding-left: 5px;
+}
+.text-input textarea::-webkit-scrollbar {
+  width: 4px;
+}
+.controls .row select::-webkit-scrollbar {
+  width: 8px;
+}
+.text-input textarea::-webkit-scrollbar-track,
+.controls .row select::-webkit-scrollbar-track {
+  background: #fff;
+}
+.text-input textarea::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 8px;
+}
+.controls .row select::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 8px;
+  border-right: 2px solid #ffffff;
+}
+.controls .exchange {
+  color: #adadad;
+  cursor: pointer;
+  font-size: 1.7rem;
+  transition: transform 0.2s ease;
+}
+.controls ion-icon:active {
+  transform: scale(0.9);
+}
+.container button {
+  width: 100%;
+  padding: 14px;
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  border-radius: 50rem;
+  background: #4e5a4b;
+}
+
+.h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #4e5a4b;
+  
+}
+
+@media (max-width: 660px) {
+  .container {
+    padding: 20px;
+  }
+  .wrapper .text-input {
+    flex-direction: column;
+  }
+  .text-input .to-text {
+    border-left: 0px;
+    border-top: 1px solid #ccc;
+  }
+  .text-input textarea {
+    height: 200px;
+  }
+  .controls .row .icons {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  .container button {
+    padding: 13px;
+    font-size: 1.2rem;
+  }
+  .controls .row select {
+    font-size: 1.2rem;
+  }
+  .controls .exchange {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .container {
+    zoom: 0.7;
+  }
+}
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="text-input">
+        <textarea spellcheck="false" class="from-text" placeholder="Enter text"></textarea>
+        <ul class="controls">
+          <li class="row from">
+            <div class="icons">
+              <ion-icon id="from" name="volume-medium-outline"></ion-icon>
+              <ion-icon id="from" name="copy-outline"></ion-icon>
+            </div>
+            <select></select>
+          </li>
+          <li class="exchange">
+            <ion-icon name="swap-vertical"></ion-icon>
+          <li class="row to">
+            <select></select>
+            <div class="icons">
+              <ion-icon id="to" name="volume-medium-outline"></ion-icon>
+              <ion-icon id="to" name="copy-outline"></ion-icon>
+            </div>
+          </li>
+        </ul>
+        <textarea spellcheck="false" readonly disabled class="to-text" placeholder="Translation"></textarea>
+      </div>
+    </div>
+    <button>Translate it</button>
+  </div>
+<script>
+  const languages = {
+  "am-ET": "Amharic",
+  "ar-SA": "Arabic",
+  "be-BY": "Bielarus",
+  "bem-ZM": "Bemba",
+  "bi-VU": "Bislama",
+  "bjs-BB": "Bajan",
+  "bn-IN": "Bengali",
+  "bo-CN": "Tibetan",
+  "br-FR": "Breton",
+  "bs-BA": "Bosnian",
+  "ca-ES": "Catalan",
+  "cop-EG": "Coptic",
+  "cs-CZ": "Czech",
+  "cy-GB": "Welsh",
+  "da-DK": "Danish",
+  "dz-BT": "Dzongkha",
+  "de-DE": "German",
+  "dv-MV": "Maldivian",
+  "el-GR": "Greek",
+  "en-GB": "English",
+  "es-ES": "Spanish",
+  "et-EE": "Estonian",
+  "eu-ES": "Basque",
+  "fa-IR": "Persian",
+  "fi-FI": "Finnish",
+  "fn-FNG": "Fanagalo",
+  "fo-FO": "Faroese",
+  "fr-FR": "French",
+  "gl-ES": "Galician",
+  "gu-IN": "Gujarati",
+  "ha-NE": "Hausa",
+  "he-IL": "Hebrew",
+  "hi-IN": "Hindi",
+  "hr-HR": "Croatian",
+  "hu-HU": "Hungarian",
+  "id-ID": "Indonesian",
+  "is-IS": "Icelandic",
+  "it-IT": "Italian",
+  "ja-JP": "Japanese",
+  "kk-KZ": "Kazakh",
+  "km-KM": "Khmer",
+  "kn-IN": "Kannada",
+  "ko-KR": "Korean",
+  "ku-TR": "Kurdish",
+  "ky-KG": "Kyrgyz",
+  "la-VA": "Latin",
+  "lo-LA": "Lao",
+  "lv-LV": "Latvian",
+  "men-SL": "Mende",
+  "mg-MG": "Malagasy",
+  "mi-NZ": "Maori",
+  "ms-MY": "Malay",
+  "mt-MT": "Maltese",
+  "my-MM": "Burmese",
+  "ne-NP": "Nepali",
+  "niu-NU": "Niuean",
+  "nl-NL": "Dutch",
+  "no-NO": "Norwegian",
+  "ny-MW": "Nyanja",
+  "ur-PK": "Pakistani",
+  "pau-PW": "Palauan",
+  "pa-IN": "Panjabi",
+  "ps-PK": "Pashto",
+  "pis-SB": "Pijin",
+  "pl-PL": "Polish",
+  "pt-PT": "Portuguese",
+  "rn-BI": "Kirundi",
+  "ro-RO": "Romanian",
+  "ru-RU": "Russian",
+  "sg-CF": "Sango",
+  "si-LK": "Sinhala",
+  "sk-SK": "Slovak",
+  "sm-WS": "Samoan",
+  "sn-ZW": "Shona",
+  "so-SO": "Somali",
+  "sq-AL": "Albanian",
+  "sr-RS": "Serbian",
+  "sv-SE": "Swedish",
+  "sw-SZ": "Swahili",
+  "ta-LK": "Tamil",
+  "te-IN": "Telugu",
+  "tet-TL": "Tetum",
+  "tg-TJ": "Tajik",
+  "th-TH": "Thai",
+  "ti-TI": "Tigrinya",
+  "tk-TM": "Turkmen",
+  "tl-PH": "Tagalog",
+  "tn-BW": "Tswana",
+  "to-TO": "Tongan",
+  "tr-TR": "Turkish",
+  "uk-UA": "Ukrainian",
+  "uz-UZ": "Uzbek",
+  "vi-VN": "Vietnamese",
+  "wo-SN": "Wolof",
+  "xh-ZA": "Xhosa",
+  "yi-YD": "Yiddish",
+  "zu-ZA": "Zulu"
+};
+
+const fromText = document.querySelector(".from-text"),
+  toText = document.querySelector(".to-text"),
+  exchageIcon = document.querySelector(".exchange"),
+  selectTag = document.querySelectorAll("select"),
+  icons = document.querySelectorAll(".row ion-icon");
+(translateBtn = document.querySelector("button")),
+  selectTag.forEach((tag, id) => {
+    for (let lang_code in languages) {
+      let selected =
+        id == 0
+          ? lang_code == "en-GB"
+            ? "selected"
+            : ""
+          : lang_code == "fa-IR"
+          ? "selected"
+          : "";
+      let option = `<option ${selected} value="${lang_code}">${languages[lang_code]}</option>`;
+      tag.insertAdjacentHTML("beforeend", option);
+    }
+  });
+
+fromText.addEventListener("keyup", () => {
+  if (!fromText.value) {
+    toText.value = "";
+  }
+});
+
+translateBtn.addEventListener("click", () => {
+  let text = fromText.value.trim(),
+    translateFrom = selectTag[0].value,
+    translateTo = selectTag[1].value;
+  if (!text) return;
+  toText.setAttribute("placeholder", "Translating...");
+  let apiUrl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`;
+  fetch(apiUrl)
+    .then((res) => res.json())
+    .then((data) => {
+      toText.value = data.responseData.translatedText;
+      data.matches.forEach((data) => {
+        if (data.id === 0) {
+          toText.value = data.translation;
+        }
+      });
+      toText.setAttribute("placeholder", "Translation");
+    });
+});
+
+exchageIcon.addEventListener("click", () => {
+  let tempText = fromText.value,
+    tempLang = selectTag[0].value;
+  fromText.value = toText.value;
+  toText.value = tempText;
+  selectTag[0].value = selectTag[1].value;
+  selectTag[1].value = tempLang;
+});
+
+icons.forEach((icon) => {
+  icon.addEventListener("click", ({ target }) => {
+    if (!fromText.value || !toText.value) return;
+    if (target.getAttribute("name") == "copy-outline") {
+      if (target.id == "from") {
+        navigator.clipboard.writeText(fromText.value);
+      } else {
+        navigator.clipboard.writeText(toText.value);
+      }
+    } else {
+      let utterance;
+      if (target.id == "from") {
+        utterance = new SpeechSynthesisUtterance(fromText.value);
+        utterance.lang = selectTag[0].value;
+      } else {
+        utterance = new SpeechSynthesisUtterance(toText.value);
+        utterance.lang = selectTag[1].value;
+      }
+      speechSynthesis.speak(utterance);
+    }
+  });
+});
+</script>
+</body>
+
+</html>
+
+// Card For Translator
+
+  <article>
+
+    <div class="article-wrapper">
+      <figure>
+        <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/123016271/original/a112ea434e270a9901589b307ebc8e0ce103ef58/translate-a-ton-of-languages.jpg" width="500" alt="" />
+      </figure>
+      <div class="article-body">
+        <h2>Translator</h2>
+        <p>
+          Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+        </p>
+        <a href="translator.html" class="read-more">
+          Go To App<span class="sr-only">about this is some title</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article> 
